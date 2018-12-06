@@ -37,7 +37,7 @@ class App extends Component {
   }
   
   giveDiscountHandeler = () => {
-    if(this.props.promoCode === 'DISCOUNT') {
+    if(this.props.promoCode === 'discount') {
       this.setState({
         estimatedTotal: this.state.estimatedTotal * 0.9
       },
@@ -76,8 +76,10 @@ class App extends Component {
 // initial taxes in the state to 0, then use lifeCycle method to create a function that sets a state for the taxes. taxes will be a percentage of total.
 
 
-const mapStateToProps = state => ({
-  promoCode: state.promoCode.value
-})
+const mapStateToProps = state => {
+  return {
+    promoCode: state.promoCode.value
+  }
+}
 
 export default connect(mapStateToProps, { handleChange })(App);

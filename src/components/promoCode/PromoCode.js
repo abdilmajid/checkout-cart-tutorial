@@ -67,9 +67,11 @@ class PromoCode extends Component {
 // isDisabled => boolean(true or false) if true apply discount, this is to control so that discount is not applied multiple times but only once.
 
 
-const mapStateToProps = state => ({
-  promoCode: state.promoCode.value
-})
+const mapStateToProps = state => {
+  return {
+    promoCode: state.promoCode.value
+  }
+}
 
 
 

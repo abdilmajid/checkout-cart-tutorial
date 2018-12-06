@@ -4,8 +4,9 @@ import promoCodeReducer from './promoCodeReducer';
 
 
 
+
 export default combineReducers({
-  promoCode: promoCodeReducer
+  promoCode: promoCodeReducer,
 });
 
 

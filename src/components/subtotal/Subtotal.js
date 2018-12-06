@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
+
 class Subtotal extends Component {
   render() {
     return (

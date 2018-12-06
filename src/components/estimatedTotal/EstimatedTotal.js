@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
+
 class EstimatedTotal extends Component {
   render() {
     return (
@@ -11,6 +12,7 @@ class EstimatedTotal extends Component {
     )
   }
 }
+
 
 
 export default EstimatedTotal;

@@ -65,4 +65,5 @@ class ItemDetails extends Component {
 // Remove outline focus artifact from (See/Hide item +) using incline styles
 
 
+
 export default ItemDetails;

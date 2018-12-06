@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Tooltip, OverlayTrigger } from 'react-bootstrap';
 
+
 const styles = {
   pickupSavings: {
     textDecoration: 'underline'
@@ -33,5 +34,7 @@ class PickupSavings extends Component {
 
 
 // OverlayTriggers -> shows message when mouse over item, message from Tooltip tag with given id
+
+
 
 export default PickupSavings;
