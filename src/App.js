@@ -9,6 +9,9 @@ import EstimatedTotal from './components/estimatedTotal/EstimatedTotal';
 import ItemDetails from './components/itemDetails/ItemDetails';
 import PromoCode from './components/promoCode/PromoCode';
 
+import { connect } from 'react-redux';
+import { handleChange } from './actions/promoCodeActions';
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -33,6 +36,17 @@ class App extends Component {
     })
   }
   
+  giveDiscountHandeler = () => {
+    if(this.props.promoCode === 'DISCOUNT') {
+      this.setState({
+        estimatedTotal: this.state.estimatedTotal * 0.9
+      },
+      function() {
+        this.setState({disabledPromoBtn: true})
+      }
+        )
+    }
+  }
 
   render() {
     return (
@@ -46,7 +60,6 @@ class App extends Component {
           <ItemDetails price={this.state.estimatedTotal.toFixed(2)}/>
           <hr/>
           <PromoCode 
-                // promoCode={}
                 isDisabled={this.state.disabledPromoBtn}
                 giveDiscount={() => this.giveDiscountHandeler()}
               />
@@ -61,4 +74,10 @@ class App extends Component {
 // pass in props Subtotal -> price
 // toFixed sets currency values (how many numbers after decimal)
 // initial taxes in the state to 0, then use lifeCycle method to create a function that sets a state for the taxes. taxes will be a percentage of total.
-export default App;
+
+
+const mapStateToProps = state => ({
+  promoCode: state.promoCode.value
+})
+
+export default connect(mapStateToProps, { handleChange })(App);

@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { Button, Collapse, Well, Form, Row, Col, FormControl, ControlLabel, FormGroup } from 'react-bootstrap';
+import { connect } from 'react-redux';
+
+import { handleChange } from '../../actions/promoCodeActions';
 
 class PromoCode extends Component {
-  constructor(props){
-    super(props)
+  constructor(props, context){
+    super(props, context)
     this.state = {
       open: false,
-      value: ''
     }
+  }
+
+//handleChange coming from redux (in actions folder)
+  handleChange = e => {
+    this.props.handleChange(e);
   }
 
   render() {
@@ -59,4 +66,11 @@ class PromoCode extends Component {
 
 // isDisabled => boolean(true or false) if true apply discount, this is to control so that discount is not applied multiple times but only once.
 
-export default PromoCode;
+
+const mapStateToProps = state => ({
+  promoCode: state.promoCode.value
+})
+
+
+
+export default connect(mapStateToProps, { handleChange })(PromoCode);
